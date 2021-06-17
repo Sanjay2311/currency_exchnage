@@ -1,0 +1,23 @@
+version: "3.4"
+services:
+  currencyExchange:
+    image: sanjay23/currency_exchange:0.0.1-RELEASE
+    container_name: currency_exchange
+    networks:
+      - microservices
+    ports:
+      - 3000:3000
+
+  currencyConversion:
+    image: sanjay23/currency_conversion:0.0.1-RELEASE
+    container_name: currency_conversion
+    environment:
+      - CURRENCY_EXCHNAGE_SERVICE_HOST=currency_exchange
+    networks:
+      - microservices
+    ports:
+      - 5000:5000
+    links:
+      - currencyExchange
+networks:
+  microservices:
