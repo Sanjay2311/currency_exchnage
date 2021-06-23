@@ -1,2 +1,2 @@
 # currency_exchnage
-## This is a test repository
+## It provide the current coversion rate.
